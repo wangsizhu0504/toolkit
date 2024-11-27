@@ -2,14 +2,13 @@
   "name": "@kriszu/toolkit",
   "type": "module",
   "version": "1.0.0",
-  "publishConfig": {
-    "access": "public"
-  },
   "description": "A collection of common JavaScript / TypeScript utils",
   "author": "Kriszu",
   "license": "MIT",
   "keywords": [
-    "utils"
+    "utils",
+    "utilities library",
+    "toolkit"
   ],
   "sideEffects": false,
   "exports": {
@@ -17,12 +16,33 @@
     "./is": "./src/is/index.ts",
     "./package.json": "./package.json"
   },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*",
-        "./*"
-      ]
+  "publishConfig": {
+    "access": "public",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      ".": {
+        "import": {
+          "types": "./dist/index.d.mts",
+          "default": "./dist/index.mjs"
+        },
+        "require": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.js"
+        }
+      },
+      "./is": {
+        "import": {
+          "types": "./dist/is/index.d.mts",
+          "default": "./dist/is/index.mjs"
+        },
+        "require": {
+          "types": "./dist/is/index.d.ts",
+          "default": "./dist/is/index.js"
+        }
+      },
+      "./package.json": "./package.json"
     }
   },
   "files": [
@@ -31,7 +51,7 @@
   ],
   "scripts": {
     "prepare": "simple-git-hooks",
-    "build": "rimraf dist && rollup -c",
+    "build": "rimraf dist && rollup -c && scripts/post-build.sh",
     "dev": "npm run build --watch",
     "clean": "rimraf node_modules dist",
     "lint": "eslint .",
