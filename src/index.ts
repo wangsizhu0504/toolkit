@@ -1,1 +1,1 @@
-export const a = 'test'
+export * from './is';

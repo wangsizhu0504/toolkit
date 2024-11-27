@@ -13,11 +13,9 @@
   ],
   "sideEffects": false,
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/es/index.js",
-      "require": "./dist/cjs/index.js"
-    }
+    ".": "./src/index.ts",
+    "./is": "./src/is/index.ts",
+    "./package.json": "./package.json"
   },
   "typesVersions": {
     "*": {
@@ -32,30 +30,45 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "prepare": "simple-git-hooks",
+    "build": "rimraf dist && rollup -c",
     "dev": "npm run build --watch",
+    "clean": "rimraf node_modules dist",
     "lint": "eslint .",
     "prepublishOnly": "npm run build",
     "release": "bumpp --commit --push --tag && npm publish",
     "start": "esno src/index.ts",
     "typecheck": "tsc --noEmit",
-    "test": "vitest"
+    "test": "vitest --coverage --typecheck"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec nano-staged --allow-empty"
+  },
+  "nano-staged": {
+    "*.{ts}": [
+      "eslint --fix"
+    ]
   },
   "devDependencies": {
     "@kriszu/eslint-config": "latest",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.1",
     "@rollup/plugin-alias": "^5.1.1",
-    "@rollup/plugin-commonjs": "^25.0.8",
-    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^15.3.0",
-    "@types/node": "^20.17.8",
+    "@types/node": "^22.10.0",
+    "@vitest/coverage-istanbul": "^2.1.6",
     "bumpp": "^9.8.1",
     "eslint": "^9.15.0",
     "esno": "^4.8.0",
+    "jsdom": "^25.0.1",
+    "nano-staged": "0.8.0",
+    "rimraf": "^6.0.1",
     "rollup": "^4.27.4",
     "rollup-plugin-dts": "^6.1.1",
-    "rollup-plugin-esbuild": "^6.1.1",
+    "simple-git-hooks": "^2.11.1",
     "typescript": "^5.7.2",
     "vite": "^5.4.11",
-    "vitest": "^1.6.0"
+    "vitest": "^2.1.6"
   }
 }

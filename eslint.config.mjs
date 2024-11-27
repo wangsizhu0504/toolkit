@@ -13,5 +13,7 @@ export default defineEslintConfig({
     'prefer-rest-params': 'off',
     'ts/prefer-for-of': 'off',
     'ts/no-use-before-define': 'off',
+    'unicorn/error-message': 'off',
+    'prefer-arrow-callback': 'off',
   },
 })
