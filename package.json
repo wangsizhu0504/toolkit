@@ -1,0 +1,61 @@
+{
+  "name": "@kriszu/toolkit",
+  "type": "module",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "A collection of common JavaScript / TypeScript utils",
+  "author": "Kriszu",
+  "license": "MIT",
+  "keywords": [
+    "utils"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/es/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./*"
+      ]
+    }
+  },
+  "files": [
+    "*.d.ts",
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "npm run build --watch",
+    "lint": "eslint .",
+    "prepublishOnly": "npm run build",
+    "release": "bumpp --commit --push --tag && npm publish",
+    "start": "esno src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@kriszu/eslint-config": "latest",
+    "@rollup/plugin-alias": "^5.1.1",
+    "@rollup/plugin-commonjs": "^25.0.8",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@types/node": "^20.17.8",
+    "bumpp": "^9.8.1",
+    "eslint": "^9.15.0",
+    "esno": "^4.8.0",
+    "rollup": "^4.27.4",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11",
+    "vitest": "^1.6.0"
+  }
+}
