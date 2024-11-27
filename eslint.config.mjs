@@ -15,5 +15,6 @@ export default defineEslintConfig({
     'ts/no-use-before-define': 'off',
     'unicorn/error-message': 'off',
     'prefer-arrow-callback': 'off',
+    'ts/no-empty-object-type': 'off',
   },
 })
