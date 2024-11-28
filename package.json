@@ -15,6 +15,7 @@
     ".": "./src/index.ts",
     "./is": "./src/is/index.ts",
     "./function": "./src/function/index.ts",
+    "./object": "./src/object/index.ts",
     "./package.json": "./package.json"
   },
   "publishConfig": {
@@ -33,6 +34,16 @@
           "default": "./dist/index.js"
         }
       },
+      "./function": {
+        "import": {
+          "types": "./dist/function/index.d.mts",
+          "default": "./dist/function/index.mjs"
+        },
+        "require": {
+          "types": "./dist/function/index.d.ts",
+          "default": "./dist/function/index.js"
+        }
+      },
       "./is": {
         "import": {
           "types": "./dist/is/index.d.mts",
@@ -43,14 +54,14 @@
           "default": "./dist/is/index.js"
         }
       },
-      "./function": {
+      "./object": {
         "import": {
-          "types": "./dist/function/index.d.mts",
-          "default": "./dist/function/index.mjs"
+          "types": "./dist/object/index.d.mts",
+          "default": "./dist/object/index.mjs"
         },
         "require": {
-          "types": "./dist/function/index.d.ts",
-          "default": "./dist/function/index.js"
+          "types": "./dist/object/index.d.ts",
+          "default": "./dist/object/index.js"
         }
       },
       "./package.json": "./package.json"
