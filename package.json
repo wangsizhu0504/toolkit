@@ -15,8 +15,9 @@
     ".": "./src/index.ts",
     "./is": "./src/is/index.ts",
     "./function": "./src/function/index.ts",
-    "./object": "./src/object/index.ts",
     "./math": "./src/math/index.ts",
+    "./object": "./src/object/index.ts",
+    "./string": "./src/string/index.ts",
     "./package.json": "./package.json"
   },
   "main": "./dist/index.js",
@@ -73,6 +74,16 @@
         "require": {
           "types": "./dist/object/index.d.ts",
           "default": "./dist/object/index.js"
+        }
+      },
+      "./string": {
+        "import": {
+          "types": "./dist/string/index.d.mts",
+          "default": "./dist/string/index.mjs"
+        },
+        "require": {
+          "types": "./dist/string/index.d.ts",
+          "default": "./dist/string/index.js"
         }
       },
       "./package.json": "./package.json"
