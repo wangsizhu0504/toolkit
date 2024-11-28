@@ -1,19 +1,21 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "strict": true,
-    "declaration": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "downlevelIteration": true,
-    "resolveJsonModule": true,
+    "target": "ESNext",
     "jsx": "preserve",
     "lib": [
       "esnext",
       "dom"
     ],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "outDir": "./dist"
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "strict": true,
+    "declaration": true,
+    "downlevelIteration": true,
+    "noEmit": true,
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
   }
 }
