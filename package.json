@@ -16,6 +16,7 @@
     "./is": "./src/is/index.ts",
     "./function": "./src/function/index.ts",
     "./object": "./src/object/index.ts",
+    "./math": "./src/math/index.ts",
     "./package.json": "./package.json"
   },
   "publishConfig": {
@@ -54,6 +55,16 @@
           "default": "./dist/is/index.js"
         }
       },
+      "./math": {
+        "import": {
+          "types": "./dist/math/index.d.mts",
+          "default": "./dist/math/index.mjs"
+        },
+        "require": {
+          "types": "./dist/math/index.d.ts",
+          "default": "./dist/math/index.js"
+        }
+      },
       "./object": {
         "import": {
           "types": "./dist/object/index.d.mts",
@@ -83,21 +94,13 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest --coverage --typecheck"
   },
-  "simple-git-hooks": {
-    "pre-commit": "pnpm exec nano-staged --allow-empty"
-  },
-  "nano-staged": {
-    "*.{ts}": [
-      "eslint --fix"
-    ]
-  },
   "devDependencies": {
     "@kriszu/eslint-config": "latest",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@rollup/plugin-typescript": "^12.1.1",
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.1",
     "@types/node": "^22.10.0",
     "@vitest/coverage-istanbul": "^2.1.6",
     "bumpp": "^9.8.1",
@@ -112,5 +115,13 @@
     "typescript": "^5.7.2",
     "vite": "^5.4.11",
     "vitest": "^2.1.6"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec nano-staged --allow-empty"
+  },
+  "nano-staged": {
+    "*.{ts}": [
+      "eslint --fix"
+    ]
   }
 }
