@@ -1,8 +1,7 @@
 # @kriszu/toolkit
 
-[![][npm-release-shield]][npm-release-link] [![][npm-downloads-shield]][npm-downloads-link] [![][github-releasedate-shield]][github-releasedate-link]  [![][github-license-shield]][github-license-link] <br/>
+[![][npm-release-shield]][npm-release-link] [![][npm-downloads-shield]][npm-downloads-link] [![][github-license-shield]][github-license-link] <br/>
 A collection of common JavaScript / TypeScript utils
-
 
 ## 📦 Installation
 
@@ -30,8 +29,6 @@ $ pnpm install @kriszu/toolkit
 [github-codespace-shield]: https://github.com/codespaces/badge.svg
 [github-license-link]: https://github.com/wangsizhu0504/toolkit/blob/master/LICENSE
 [github-license-shield]: https://img.shields.io/github/license/wangsizhu0504/toolkit?color=1677FF&labelColor=black&style=flat-square
-[github-releasedate-link]: https://github.com/wangsizhu0504/toolkit/releases
-[github-releasedate-shield]: https://img.shields.io/github/release-date/wangsizhu0504/toolkit?color=1677FF&labelColor=black&style=flat-square
 [npm-downloads-link]: https://www.npmjs.com/package/@kriszu/toolkit
 [npm-downloads-shield]: https://img.shields.io/npm/dt/@kriszu/toolkit?labelColor=black&style=flat-square&color=1677FF
 [npm-release-link]: https://www.npmjs.com/package/@kriszu/toolkit
