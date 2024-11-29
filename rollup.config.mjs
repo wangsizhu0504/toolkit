@@ -1,30 +1,23 @@
 // @ts-check
-import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import dtsPlugin from 'rollup-plugin-dts';
+import alias from '@rollup/plugin-alias';
+import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
 import tsPlugin from '@rollup/plugin-typescript';
-import alias from '@rollup/plugin-alias'
-import resolve from '@rollup/plugin-node-resolve'
-import commonjs from '@rollup/plugin-commonjs'
+import glob from 'fast-glob';
+import dtsPlugin from 'rollup-plugin-dts';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-/**
- * @type {{
- *   exports: Record<string, string>;
- *   publishConfig: { browser: string };
- * }}
- */
-const packageJson = createRequire(import.meta.url)('./package.json');
+const entrypoints = await glob([`src/**/index.ts`], {
+  cwd: __dirname,
+  absolute: false,
+});
 
 const testPatterns = ['**/*.spec.ts', '**/*.test.ts'];
 
-
 export default () => {
-
-  const entrypoints = Object.values(packageJson.exports).filter(f => /^(\.\/)?src\//.test(f) && f.endsWith('.ts'));
-
   return [
     libBuildOptions({
       format: 'esm',
@@ -56,7 +49,7 @@ export default () => {
  *   sourcemap: boolean;
  * }) => import('rollup').RollupOptions}
  */
-function libBuildOptions ({ entrypoints, extension, format, outDir, sourcemap }) {
+function libBuildOptions({ entrypoints, extension, format, outDir, sourcemap }) {
   const isESM = format === 'esm';
 
   return {
@@ -101,7 +94,7 @@ function libBuildOptions ({ entrypoints, extension, format, outDir, sourcemap })
 /**
  * @type {(options: {entrypoints: string[]; outDir: string}) => import('rollup').RollupOptions}
  */
-function declarationOptions ({ entrypoints, outDir }) {
+function declarationOptions({ entrypoints, outDir }) {
   return {
     plugins: [dtsPlugin()],
     input: mapInputs(entrypoints),
@@ -127,13 +120,13 @@ function declarationOptions ({ entrypoints, outDir }) {
 }
 
 /** @type {(srcFiles: string[]) => Record<string, string>} */
-function mapInputs (srcFiles) {
+function mapInputs(srcFiles) {
   return Object.fromEntries(
-    srcFiles.map(file => [file.replace(/^(\.\/)?src\//, '').replace(/\.[cm]?(js|ts)$/, ''), join(__dirname, file)])
+    srcFiles.map(file => [file.replace(/^(\.\/)?src\//, '').replace(/\.[cm]?(js|ts)$/, ''), join(__dirname, file)]),
   );
 }
 
-function fileNames (extension = 'js') {
+function fileNames(extension = 'js') {
   return {
     entryFileNames: `[name].${extension}`,
     chunkFileNames: `_chunk/[name]-[hash:6].${extension}`,
