@@ -7,6 +7,7 @@ export * from './isBlob';
 export * from './isBoolean';
 export * from './isBuffer';
 export * from './isDate';
+export * from './isEmpty';
 export * from './isError';
 export * from './isFile';
 export * from './isFunction';
