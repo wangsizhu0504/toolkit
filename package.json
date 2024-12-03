@@ -22,6 +22,16 @@
         "default": "./dist/index.js"
       }
     },
+    "./array": {
+      "import": {
+        "types": "./dist/array/index.d.mts",
+        "default": "./dist/array/index.mjs"
+      },
+      "require": {
+        "types": "./dist/array/index.d.ts",
+        "default": "./dist/array/index.js"
+      }
+    },
     "./function": {
       "import": {
         "types": "./dist/function/index.d.mts",
