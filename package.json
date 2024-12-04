@@ -1,7 +1,7 @@
 {
   "name": "@kriszu/toolkit",
   "type": "module",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "A collection of common JavaScript / TypeScript utils",
   "author": "Kriszu",
   "license": "MIT",
