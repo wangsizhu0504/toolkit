@@ -1,6 +1,6 @@
 export * from './camelCase';
 export * from './capitalize';
-export * from './endWith';
+export * from './endsWith';
 export * from './lowerCase';
 export * from './lowerFirst';
 export * from './trim';
