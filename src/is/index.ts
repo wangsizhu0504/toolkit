@@ -8,6 +8,8 @@ export * from './isBoolean';
 export * from './isBuffer';
 export * from './isDate';
 export * from './isEmpty';
+export * from './isEqual';
+export * from './isEqualWith';
 export * from './isError';
 export * from './isFile';
 export * from './isFunction';
