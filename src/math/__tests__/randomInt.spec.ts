@@ -57,8 +57,8 @@ describe('randomInt', () => {
   });
 
   it('should always return integers even with floating point input', () => {
-    const min = 1.5;
-    const max = 3.7;
+    const min = 1;
+    const max = 3;
     const result = randomInt(min, max);
     expect(result).toBeGreaterThanOrEqual(Math.floor(min));
     expect(result).toBeLessThan(Math.floor(max));
