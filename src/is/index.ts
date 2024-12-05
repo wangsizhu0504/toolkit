@@ -15,6 +15,7 @@ export * from './isFile';
 export * from './isFunction';
 export * from './isLength';
 export * from './isMap';
+export * from './isMatch';
 export * from './isNil';
 export * from './isNotNil';
 export * from './isNull';
